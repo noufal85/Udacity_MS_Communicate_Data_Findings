@@ -13090,26 +13090,26 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=e1fac0df"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=500a7632"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Part-I-%E2%80%94-When-and-how-long-do-Ford-GoBike-trips-occur?">Part I — When and how long do Ford GoBike trips occur?<a class="anchor-link" href="#Part-I-%E2%80%94-When-and-how-long-do-Ford-GoBike-trips-occur?">¶</a></h1><h2 id="by-Noufal">by Noufal<a class="anchor-link" href="#by-Noufal">¶</a></h2><h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><p>This exploration studies all recorded Ford GoBike trips beginning in February 2019 in the San Francisco Bay Area. The official Bay Wheels archive supplies 183,412 trip records; rows describe trips, not unique riders.</p>
 <p>The questions are: How are trip duration and starts distributed? How does duration vary by user type? Do time-of-day patterns differ between Subscriber and Customer trips? How do those patterns change between weekdays and weekends?</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=4765f5e0"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=d54a4584"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Source and scope.</strong> The snapshot comes from <code>https://s3.amazonaws.com/baywheels-data/201902-fordgobike-tripdata.csv.zip</code>; the raw CSV, retrieval time and SHA-256 checksums are preserved under <code>data/raw/</code>. The course-hosted CSV link returned HTTP 403, so the official archive is used instead. This version has 14 fields and no member age/gender columns; the analysis does not infer demographics, trip purpose, unique users, demand unmet by the system, or annual seasonality.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=b0ecc685"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=4c21ce0c"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Preliminary-Wrangling">Preliminary Wrangling<a class="anchor-link" href="#Preliminary-Wrangling">¶</a></h2>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=a463cd68">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=9dc5ae3c">
 <div class="input">
 <div class="inner_cell">
 <div class="input_area">
@@ -13154,7 +13154,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=c8e112bd">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=a2bcd963">
 <div class="input">
 <div class="inner_cell">
 <div class="input_area">
@@ -13487,7 +13487,7 @@ memory usage: 19.6+ MB
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=b05100e6"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=f6775aba"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="What-is-the-structure-of-your-dataset?">What is the structure of your dataset?<a class="anchor-link" href="#What-is-the-structure-of-your-dataset?">¶</a></h3><p>The raw file contains 183,412 trips and 14 fields: duration, start/end timestamps and station coordinates/identifiers, bike identifier, user type and a program flag. The analytical table has nine fields: essential timestamps, duration in seconds/minutes, user type, start hour, ordered weekday, ordered day type and start date. There are no duplicate records or invalid essential fields in this snapshot, so all 183,412 trips remain; 197 trips have missing station names/IDs, which are not needed for this analysis.</p>
 <h3 id="What-is/are-the-main-feature(s)-of-interest-in-your-dataset?">What is/are the main feature(s) of interest in your dataset?<a class="anchor-link" href="#What-is/are-the-main-feature(s)-of-interest-in-your-dataset?">¶</a></h3><p>Trip duration and the timing/volume of recorded trip starts are the main outcomes. Duration is measured in minutes, and counts always refer to trips rather than people.</p>
@@ -13495,25 +13495,25 @@ memory usage: 19.6+ MB
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=3a8439cc"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=12f58292"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Preparation decisions.</strong> The reusable preparation function checks positive duration, valid and increasing timestamps, agreement of recorded duration with elapsed time to within one second, February start dates and the two observed user-type labels. It would exclude invalid essentials or exact duplicate rows with non-overlapping row accounting, but makes zero such exclusions here. Long trips are retained; logarithmic axes handle the tail instead of treating an arbitrary duration cutoff as a cleaning rule. Missing optional station metadata does not justify removing a usable trip.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=dc045477"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=4860c3ba"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Univariate-Exploration">Univariate Exploration<a class="anchor-link" href="#Univariate-Exploration">¶</a></h2>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=cb475eb8"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=7fd37a94"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-%E2%80%94-How-is-trip-duration-distributed?">Question — How is trip duration distributed?<a class="anchor-link" href="#Question-%E2%80%94-How-is-trip-duration-distributed?">¶</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=7583986d">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=a1450f54">
 <div class="input">
 <div class="inner_cell">
 <div class="input_area">
@@ -13533,19 +13533,19 @@ memory usage: 19.6+ MB
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=92216f5c"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=d1969bfd"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Observations.</strong> Durations are strongly right-skewed: the median is 8.57 minutes, the 95th percentile is 26.18 minutes, and the maximum is 1424.1 minutes. Log-spaced bins and a log x-axis expose the main mass while keeping the full tail visible; 96.3% of trips last at most 30 minutes.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=0d744d80"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=236c07c3"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-%E2%80%94-Which-user-type-accounts-for-most-trips?">Question — Which user type accounts for most trips?<a class="anchor-link" href="#Question-%E2%80%94-Which-user-type-accounts-for-most-trips?">¶</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=7431c55e">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=e0690646">
 <div class="input">
 <div class="inner_cell">
 <div class="input_area">
@@ -13565,19 +13565,19 @@ memory usage: 19.6+ MB
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=a616afac"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=be0615cf"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Observations.</strong> Subscriber trips account for 89.17% of recorded trips (163,544 versus 19,868 Customer trips). This is a trip composition, not a population share of unique people, and the imbalance motivates normalized group comparisons later.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=2c26823d"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=95f70d30"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-%E2%80%94-At-what-hours-do-most-trips-start?">Question — At what hours do most trips start?<a class="anchor-link" href="#Question-%E2%80%94-At-what-hours-do-most-trips-start?">¶</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=c869aa7c">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=807c3527">
 <div class="input">
 <div class="inner_cell">
 <div class="input_area">
@@ -13597,19 +13597,19 @@ memory usage: 19.6+ MB
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=4fa1c5a0"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=26dc5d6d"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Observations.</strong> The largest raw hourly count occurs at 17:00 (21,864 trips), followed by 08:00 (21,056). The pooled distribution has morning/evening concentrations, but it does not show whether both user types have the same pattern.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=89fc4849"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=88a98ff5"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-%E2%80%94-How-does-recorded-volume-vary-by-weekday?">Question — How does recorded volume vary by weekday?<a class="anchor-link" href="#Question-%E2%80%94-How-does-recorded-volume-vary-by-weekday?">¶</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=f2b18c01">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=fa717ae5">
 <div class="input">
 <div class="inner_cell">
 <div class="input_area">
@@ -13629,19 +13629,19 @@ memory usage: 19.6+ MB
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=c268aeb9"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=6053ba3e"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Observations.</strong> Thursday has the most trips (35,197), while Saturday has the fewest (15,405). Each weekday occurs four times in February 2019, so these weekday totals have equal calendar exposure; they still combine two differently sized user groups.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=a6930fd1"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=82b90530"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-%E2%80%94-How-do-raw-weekday-and-weekend-totals-compare?">Question — How do raw weekday and weekend totals compare?<a class="anchor-link" href="#Question-%E2%80%94-How-do-raw-weekday-and-weekend-totals-compare?">¶</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=929dadca">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=9ea8625d">
 <div class="input">
 <div class="inner_cell">
 <div class="input_area">
@@ -13661,32 +13661,32 @@ memory usage: 19.6+ MB
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=6e27db12"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=3217ec9e"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Observations.</strong> There are 152,484 weekday trips and 30,928 weekend trips, but the month contains 20 weekdays versus eight weekend days. The raw totals alone therefore overstate a typical-day contrast; later comparisons divide by the appropriate calendar-day count.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=89cdd841"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=bd14412a"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Discuss-the-distributions-and-transformations">Discuss the distributions and transformations<a class="anchor-link" href="#Discuss-the-distributions-and-transformations">¶</a></h3><p>Duration has a long right tail; a log-scale histogram retains long trips without allowing the central mass to collapse into one narrow band. User type is imbalanced, and hourly starts concentrate around 08:00 and 17:00.</p>
 <h3 id="Were-there-unusual-distributions-or-changes-to-tidy-the-data?">Were there unusual distributions or changes to tidy the data?<a class="anchor-link" href="#Were-there-unusual-distributions-or-changes-to-tidy-the-data?">¶</a></h3><p>Duration units were converted from seconds to minutes, dates were parsed, and calendar features were derived with ordered categories. No duration outlier was deleted, no missing station label was guessed, and no demographic category was created. Calendar exposure, not a data-quality defect, explains part of the weekday/weekend total difference.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=0664d7a3"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=255c3c0c"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Bivariate-Exploration">Bivariate Exploration<a class="anchor-link" href="#Bivariate-Exploration">¶</a></h2>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=897d8fab"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=51e44212"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-%E2%80%94-Does-start-hour-alone-explain-duration?">Question — Does start hour alone explain duration?<a class="anchor-link" href="#Question-%E2%80%94-Does-start-hour-alone-explain-duration?">¶</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=c98148bd">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=8fa4a523">
 <div class="input">
 <div class="inner_cell">
 <div class="input_area">
@@ -13706,19 +13706,19 @@ memory usage: 19.6+ MB
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=c6ed3173"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=675d694a"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Observations.</strong> The seeded sample of 4,000 trips shows broad duration dispersion at similar start hours, with a dense short-trip band and a sparse long-duration tail. Alpha blending and a log y-axis reduce overplotting, but this sampled diagnostic does not replace the complete-data summaries or establish an hour-to-duration causal effect.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=3d2add13"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=8fec7441"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-%E2%80%94-How-does-typical-duration-differ-by-user-type?">Question — How does typical duration differ by user type?<a class="anchor-link" href="#Question-%E2%80%94-How-does-typical-duration-differ-by-user-type?">¶</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=2bfc86d9">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=db39184a">
 <div class="input">
 <div class="inner_cell">
 <div class="input_area">
@@ -13738,19 +13738,19 @@ memory usage: 19.6+ MB
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=3440aa35"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=6a3c1056"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Observations.</strong> Customer trips have a median duration of 13.2 minutes versus 8.17 minutes for Subscriber trips. The boxplots summarize all rows; markers beyond the 1.5×IQR whiskers are omitted from this display only, with the full tail already examined above.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=bd45e7b8"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=e8557279"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-%E2%80%94-When-are-average-weekday/hour-volumes-largest?">Question — When are average weekday/hour volumes largest?<a class="anchor-link" href="#Question-%E2%80%94-When-are-average-weekday/hour-volumes-largest?">¶</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=031ae8bb">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=9dd20ae7">
 <div class="input">
 <div class="inner_cell">
 <div class="input_area">
@@ -13770,19 +13770,19 @@ memory usage: 19.6+ MB
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=9a8fa528"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=410c2100"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Observations.</strong> The calendar-adjusted heatmap highlights morning and late-afternoon concentrations on working weekdays, while weekend starts concentrate more around daytime hours. Each cell is the number of trips at that hour divided by the four occurrences of its weekday, not a probability of riding or a count of unique riders.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=8e430c1e"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=e0f9e025"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-%E2%80%94-Does-the-weekday-pattern-differ-by-user-type?">Question — Does the weekday pattern differ by user type?<a class="anchor-link" href="#Question-%E2%80%94-Does-the-weekday-pattern-differ-by-user-type?">¶</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=5947011d">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=5728351d">
 <div class="input">
 <div class="inner_cell">
 <div class="input_area">
@@ -13802,19 +13802,19 @@ memory usage: 19.6+ MB
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=b4648f4b"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=83729692"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Observations.</strong> Subscriber trips dominate absolute daily volume and show a larger weekday–weekend contrast. Customer daily volumes are much smaller, so a common absolute y-axis is useful for scale but insufficient for comparing within-group hourly shapes; the multivariate section addresses that limitation.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=7912c40c"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=02ce7e4e"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-%E2%80%94-Is-the-duration-difference-visible-across-the-full-distributions?">Question — Is the duration difference visible across the full distributions?<a class="anchor-link" href="#Question-%E2%80%94-Is-the-duration-difference-visible-across-the-full-distributions?">¶</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=e4201875">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=df6ed593">
 <div class="input">
 <div class="inner_cell">
 <div class="input_area">
@@ -13834,32 +13834,32 @@ memory usage: 19.6+ MB
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=16dcbb11"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=55a608df"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Observations.</strong> The complete-data ECDF places the Customer distribution to the right of the Subscriber distribution across much of the central range, consistent with the longer Customer median. Both retain long tails; logarithmic duration coordinates preserve positive values and avoid discarding extremes.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=ba5060bd"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=cc7b484e"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="How-did-the-features-of-interest-vary-with-other-features?">How did the features of interest vary with other features?<a class="anchor-link" href="#How-did-the-features-of-interest-vary-with-other-features?">¶</a></h3><p>Duration differs by user type, and starts vary with hour and weekday. The same pooled hourly profile can hide differences between user groups, while unequal weekday/weekend exposure can distort raw-count comparisons.</p>
 <h3 id="Were-there-relationships-between-supporting-features?">Were there relationships between supporting features?<a class="anchor-link" href="#Were-there-relationships-between-supporting-features?">¶</a></h3><p>The relative Subscriber/Customer mix varies across weekdays, and time-of-day patterns differ between weekdays and weekends. These associations motivate conditioning on both user type and day type, with normalized shares to separate timing from group size.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=7e1042a3"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=226db285"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Multivariate-Exploration">Multivariate Exploration<a class="anchor-link" href="#Multivariate-Exploration">¶</a></h2>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=796437b9"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=0da0816d"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-%E2%80%94-How-do-hourly-profiles-change-jointly-with-user-type-and-day-type?">Question — How do hourly profiles change jointly with user type and day type?<a class="anchor-link" href="#Question-%E2%80%94-How-do-hourly-profiles-change-jointly-with-user-type-and-day-type?">¶</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=e77c023d">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=d23f8001">
 <div class="input">
 <div class="inner_cell">
 <div class="input_area">
@@ -13879,19 +13879,19 @@ memory usage: 19.6+ MB
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=c49af093"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=d3884088"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Observations.</strong> Each panel conditions on user type and each line on day type; every line sums to 100% over hours, so the y-axis compares timing rather than absolute traffic. Subscriber peaks shift from 08:00 on weekdays to 14:00 on weekends, while Customer peaks shift from 17:00 to 13:00; this is consistent with differing schedules, not recorded proof of trip purpose.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=9167af00"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=49004cca"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-%E2%80%94-How-does-median-duration-vary-by-hour,-user-type-and-day-type?">Question — How does median duration vary by hour, user type and day type?<a class="anchor-link" href="#Question-%E2%80%94-How-does-median-duration-vary-by-hour,-user-type-and-day-type?">¶</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=6fd37a9b">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=11f4386b">
 <div class="input">
 <div class="inner_cell">
 <div class="input_area">
@@ -13911,20 +13911,20 @@ memory usage: 19.6+ MB
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=06cb7448"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=163f87ca"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Observations.</strong> Color identifies user type and marker shape identifies day type, exposing conditional medians that a pooled duration plot hides. Customer medians are 16.05 minutes on weekends and 12.40 on weekdays, while Subscriber medians remain close to 8.1 minutes; individual hour/user/day cells range from five to 18,558 trips, so sparse early-hour medians should not be overinterpreted.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=a841cf17"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=b7cbf7f5"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Did-features-strengthen-each-other-when-conditioning-jointly?">Did features strengthen each other when conditioning jointly?<a class="anchor-link" href="#Did-features-strengthen-each-other-when-conditioning-jointly?">¶</a></h3><p>Yes: conditioning on user type and day type separates changes in hourly shape from large differences in group volume. Calendar-adjusted daily Subscriber volume is about 6,913 trips on weekdays versus 3,162 on weekend days, whereas Customer volume is about 712 versus 704.</p>
 <h3 id="Were-there-surprising-interactions?">Were there surprising interactions?<a class="anchor-link" href="#Were-there-surprising-interactions?">¶</a></h3><p>The Customer weekend duration shift contrasts with the nearly unchanged Subscriber medians. Sparse early-hour groups can produce unstable medians, and one month of observational trip records cannot distinguish user preference, pricing, weather, network supply or trip purpose. The evidence supports conditional description, not a behavioral or causal attribution.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=03317a5f"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=412e55d1"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">¶</a></h2><ul>
 <li>Subscriber trips make up 89.2% of the 183,412 recorded trips; this is not a unique-rider statistic.</li>

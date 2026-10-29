@@ -49,6 +49,7 @@ def test_explanatory_html_has_a_report_title_and_hides_runtime_diagnostics():
     html=(ROOT/'Part_II_explanatory_template.html').read_text()
     assert '<title>Ford GoBike — Explanatory Findings</title>' in html
     assert 'Verified shared analysis population:' not in html
+    assert 'https://s3.amazonaws.com/baywheels-data/201902-fordgobike-tripdata.csv.zip' in html
 
 
 @pytest.mark.parametrize('name',['Part_I_exploration_template','Part_II_explanatory_template'])

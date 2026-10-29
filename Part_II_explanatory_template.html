@@ -13090,13 +13090,13 @@ div#notebook {
 <main>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=660fa002"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=c49cacd8"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Part-II-%E2%80%94-Different-trip-rhythms-within-one-bike-share-system">Part II — Different trip rhythms within one bike-share system<a class="anchor-link" href="#Part-II-%E2%80%94-Different-trip-rhythms-within-one-bike-share-system">¶</a></h1><h2 id="by-Noufal">by Noufal<a class="anchor-link" href="#by-Noufal">¶</a></h2>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=8802d1a0"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=a65907fe"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Investigation-Overview">Investigation Overview<a class="anchor-link" href="#Investigation-Overview">¶</a></h2><p>This report communicates four descriptive findings from the preceding Ford GoBike exploration. Its audience is a bike-share service analyst comparing recorded trip patterns, not estimating causal effects or counting unique customers.</p>
 <h2 id="Dataset-Overview-and-Executive-Summary">Dataset Overview and Executive Summary<a class="anchor-link" href="#Dataset-Overview-and-Executive-Summary">¶</a></h2><p>The official Bay Wheels February 2019 archive contains 183,412 trips and 14 raw fields. All trips pass the essential validity checks; the nine-column analytical dataset preserves long durations and does not remove trips for missing optional station labels. Source URL, retrieval timestamp and checksums are included with the raw data.</p>
@@ -13111,13 +13111,19 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=4662d076"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=8e24ca90"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Data source.</strong> <a href="https://www.lyft.com/bikes/bay-wheels/system-data">Bay Wheels system data</a>, using the <a href="https://s3.amazonaws.com/baywheels-data/201902-fordgobike-tripdata.csv.zip">official February 2019 Ford GoBike archive</a>. Exact retrieval details and checksums accompany the raw CSV; provider data terms apply. This report describes February 2019, not current service operations.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=8ccb3176"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-%E2%80%94-Who-accounts-for-most-recorded-trips?">Question — Who accounts for most recorded trips?<a class="anchor-link" href="#Question-%E2%80%94-Who-accounts-for-most-recorded-trips?">¶</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=db5e558b">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=a7503c7d">
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
@@ -13128,19 +13134,19 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=d4d4605b"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=6ec538e1"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Observations.</strong> Subscriber trips account for 89.2% of February records, versus 10.8% for Customer trips. Percentages and trip counts are annotated to establish the scale imbalance; they describe trip categories rather than distinct people.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=cff588c2"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=8e6d03be"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-%E2%80%94-Do-weekday-timing-patterns-differ-after-adjusting-for-group-size?">Question — Do weekday timing patterns differ after adjusting for group size?<a class="anchor-link" href="#Question-%E2%80%94-Do-weekday-timing-patterns-differ-after-adjusting-for-group-size?">¶</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=51456c84">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=01fac6bc">
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
@@ -13151,19 +13157,19 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=a69371e4"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=ac5d63b4"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Observations.</strong> Each line divides hourly weekday trips by all weekday trips within its user type, removing the dominance of the larger Subscriber group from the timing comparison. Subscriber trips show pronounced morning and late-afternoon concentrations; Customer trips peak at 17:00, but trip purpose is not recorded.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=fa114af8"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=ea307184"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-%E2%80%94-How-does-typical-duration-differ-by-user-type?">Question — How does typical duration differ by user type?<a class="anchor-link" href="#Question-%E2%80%94-How-does-typical-duration-differ-by-user-type?">¶</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=38f8cc07">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=ae13bcbb">
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
@@ -13174,19 +13180,19 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=f53254b2"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=dae4c163"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Observations.</strong> The Customer median is 13.2 minutes, compared with 8.2 minutes for Subscriber trips. Log coordinates make the central distributions readable; omitted outlier markers are a display choice only, and every valid trip contributes to the boxes and medians.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=0fca0077"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=89b68272"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-%E2%80%94-Does-the-weekday%E2%80%93weekend-volume-difference-survive-exposure-adjustment?">Question — Does the weekday–weekend volume difference survive exposure adjustment?<a class="anchor-link" href="#Question-%E2%80%94-Does-the-weekday%E2%80%93weekend-volume-difference-survive-exposure-adjustment?">¶</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered" id="cell-id=4e46a2be">
+<div class="cell border-box-sizing code_cell rendered" id="cell-id=41e5a162">
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
@@ -13197,13 +13203,13 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=8eef1b3a"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=47ebefda"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Observations.</strong> Dividing by 20 weekdays and eight weekend days yields about 6,913 versus 3,162 daily Subscriber trips, compared with about 712 versus 704 Customer trips. The larger Subscriber gap is therefore not solely an artifact of more weekdays in the month; these remain recorded trip volumes, not per-person usage rates.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered" id="cell-id=00f8190a"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=fc2e3998"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Takeaways-and-limits">Takeaways and limits<a class="anchor-link" href="#Takeaways-and-limits">¶</a></h2><p>User-type composition, trip duration and temporal profiles tell complementary stories; no single pooled plot captures all three. All figures use the same valid trip population, consistent colors and explicit denominators. One month cannot establish seasonal demand, unique-rider behavior, causality or the purpose of any trip; a broader study should add time periods and contextual service data.</p>
 <p>The accompanying HTML is the presentation report, with plotting code hidden and all figures embedded; the notebook retains the executable source for review.</p>

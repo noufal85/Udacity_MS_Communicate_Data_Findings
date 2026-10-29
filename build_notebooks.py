@@ -127,6 +127,7 @@ assert summary == saved_summary
 print('Verified shared analysis population:', len(trips), 'trips; February 2019')
 print('Median durations (minutes):', summary['subscriber_median_minutes'], summary['customer_median_minutes'])''',tags=['report_setup']),
 ]
+part2 += [md('**Data source.** [Bay Wheels system data](https://www.lyft.com/bikes/bay-wheels/system-data), using the [official February 2019 Ford GoBike archive](https://s3.amazonaws.com/baywheels-data/201902-fordgobike-tripdata.csv.zip). Exact retrieval details and checksums accompany the raw CSV; provider data terms apply. This report describes February 2019, not current service operations.')]
 part2 += chart('e_composition','bar','Who accounts for most recorded trips?',
     'Subscriber trips account for 89.2% of February records, versus 10.8% for Customer trips. Percentages and trip counts are annotated to establish the scale imbalance; they describe trip categories rather than distinct people.', part='ii')
 part2 += chart('e_weekday_profile','line','Do weekday timing patterns differ after adjusting for group size?',
