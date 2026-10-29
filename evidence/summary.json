@@ -1,0 +1,17 @@
+{
+  "trips": 183412,
+  "subscriber_share_percent": 89.16755719364055,
+  "subscriber_median_minutes": 8.166666666666666,
+  "customer_median_minutes": 13.2,
+  "median_minutes": 8.566666666666666,
+  "p95_minutes": 26.183333333333334,
+  "maximum_minutes": 1424.0666666666666,
+  "subscriber_weekday_peak_hour": 8,
+  "subscriber_weekday_trips_per_day": 6912.549999999999,
+  "subscriber_weekend_peak_hour": 14,
+  "subscriber_weekend_trips_per_day": 3161.625,
+  "customer_weekday_peak_hour": 17,
+  "customer_weekday_trips_per_day": 711.65,
+  "customer_weekend_peak_hour": 13,
+  "customer_weekend_trips_per_day": 704.375
+}

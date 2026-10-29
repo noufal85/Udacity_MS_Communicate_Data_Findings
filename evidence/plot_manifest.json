@@ -1,0 +1,70 @@
+{
+  "Part I": [
+    {
+      "chart_id": "u_duration",
+      "family": "histogram"
+    },
+    {
+      "chart_id": "u_user_type",
+      "family": "bar"
+    },
+    {
+      "chart_id": "u_hour",
+      "family": "count"
+    },
+    {
+      "chart_id": "u_weekday",
+      "family": "count"
+    },
+    {
+      "chart_id": "u_day_type",
+      "family": "bar"
+    },
+    {
+      "chart_id": "b_scatter",
+      "family": "scatter"
+    },
+    {
+      "chart_id": "b_box",
+      "family": "box"
+    },
+    {
+      "chart_id": "b_heatmap",
+      "family": "heatmap"
+    },
+    {
+      "chart_id": "b_cluster",
+      "family": "clustered_bar"
+    },
+    {
+      "chart_id": "b_ecdf",
+      "family": "ecdf"
+    },
+    {
+      "chart_id": "m_facet",
+      "family": "facet"
+    },
+    {
+      "chart_id": "m_encoded_scatter",
+      "family": "multi_encoding_scatter"
+    }
+  ],
+  "Part II": [
+    {
+      "chart_id": "e_composition",
+      "family": "bar"
+    },
+    {
+      "chart_id": "e_weekday_profile",
+      "family": "line"
+    },
+    {
+      "chart_id": "e_duration",
+      "family": "box"
+    },
+    {
+      "chart_id": "e_calendar_rates",
+      "family": "clustered_bar"
+    }
+  ]
+}

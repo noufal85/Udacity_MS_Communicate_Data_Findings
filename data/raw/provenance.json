@@ -1,0 +1,8 @@
+{
+  "url": "https://s3.amazonaws.com/baywheels-data/201902-fordgobike-tripdata.csv.zip",
+  "retrieved_utc": "2026-10-28T23:34:10.135720+00:00",
+  "archive_sha256": "faf328066317095b933a628be765eef6838af3229eec131ec7ab38d9c596ce93",
+  "csv_sha256": "d324d90d9b2b2116e2963a4824051687cf0641929b5cbe94cd7ae84e0b0a3b25",
+  "csv_bytes": 33995020,
+  "archive_member": "201902-fordgobike-tripdata.csv"
+}
